@@ -1,0 +1,304 @@
+<title>Akiya au Japon</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#faf6ef; --bg-raised:#ffffff; --ink:#221f1a; --ink-dim:#6b6357; --line:#e4dccc; --line-soft:#efe9dc;
+    --accent:#25406b; --accent-soft:#dfe6ef;
+    --ski:#3a6fa5; --ski-soft:#e2ecf5;
+    --surf:#1f8f83; --surf-soft:#dcf0ec;
+    --dive:#4a3c8c; --dive-soft:#e6e1f5;
+    --status-new:#2f6fb0; --status-review:#b8862f; --status-good:#2a8f4f; --status-reject:#9a5a5a;
+    --shadow: 0 1px 2px rgba(40,30,10,.06), 0 6px 20px -8px rgba(40,30,10,.15);
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#17191c; --bg-raised:#20242a; --ink:#eee9df; --ink-dim:#a3a094; --line:#33383f; --line-soft:#282c32;
+      --accent:#8ea9d6; --accent-soft:#22344f;
+      --ski:#7fa8d6; --ski-soft:#1f2f42;
+      --surf:#5cc2b3; --surf-soft:#123330;
+      --dive:#a99bef; --dive-soft:#2a2547;
+      --status-new:#7fa8d6; --status-review:#d9ac5a; --status-good:#66c78a; --status-reject:#d98a8a;
+      --shadow: 0 1px 2px rgba(0,0,0,.3), 0 6px 24px -8px rgba(0,0,0,.5);
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#17191c; --bg-raised:#20242a; --ink:#eee9df; --ink-dim:#a3a094; --line:#33383f; --line-soft:#282c32;
+    --accent:#8ea9d6; --accent-soft:#22344f;
+    --ski:#7fa8d6; --ski-soft:#1f2f42;
+    --surf:#5cc2b3; --surf-soft:#123330;
+    --dive:#a99bef; --dive-soft:#2a2547;
+    --status-new:#7fa8d6; --status-review:#d9ac5a; --status-good:#66c78a; --status-reject:#d98a8a;
+    --shadow: 0 1px 2px rgba(0,0,0,.3), 0 6px 24px -8px rgba(0,0,0,.5);
+    color-scheme: dark;
+  }
+  *{box-sizing:border-box;}
+  body{ margin:0; background:var(--bg); color:var(--ink); font-family:"Zen Kaku Gothic New", "Hiragino Sans", sans-serif; padding:0 16px; }
+  h1,h2,h3{ font-family:"Shippori Mincho", serif; margin:0; text-wrap:balance; }
+  .mono{ font-family:"JetBrains Mono", ui-monospace, monospace; font-variant-numeric: tabular-nums; }
+  a{ color:inherit; }
+  .wrap{ max-width:1180px; margin:0 auto; padding-block:20px 48px; }
+
+  header.top{ position:sticky; top:env(safe-area-inset-top,0px); z-index:20; background:var(--bg); padding-block:14px 10px; border-bottom:1px solid var(--line); }
+  .titlebar{ display:flex; align-items:baseline; justify-content:space-between; gap:12px; flex-wrap:wrap; }
+  .titlebar h1{ font-size:1.5rem; font-weight:800; letter-spacing:.01em; }
+  .titlebar .tag{ font-size:.72rem; color:var(--ink-dim); letter-spacing:.06em; text-transform:uppercase; }
+  .sub{ color:var(--ink-dim); font-size:.86rem; margin-top:4px; max-width:60ch; }
+  .links{ display:flex; gap:14px; font-size:.8rem; margin-top:8px; flex-wrap:wrap; }
+  .links a{ text-decoration:none; border-bottom:1px solid var(--line); padding-bottom:1px; color:var(--accent); }
+  .links a:hover{ border-color:var(--accent); }
+
+  .stats{ display:flex; gap:10px; flex-wrap:wrap; margin-top:14px; }
+  .stat{ background:var(--bg-raised); border:1px solid var(--line); border-radius:10px; padding:8px 14px; box-shadow:var(--shadow); min-width:84px; }
+  .stat b{ display:block; font-family:"JetBrains Mono",monospace; font-size:1.15rem; font-weight:700; }
+  .stat span{ font-size:.68rem; color:var(--ink-dim); text-transform:uppercase; letter-spacing:.05em; }
+
+  .toolbar{ display:flex; flex-wrap:wrap; gap:8px 10px; align-items:center; margin-top:14px; padding-bottom:12px; }
+  .group-label{ font-size:.68rem; color:var(--ink-dim); text-transform:uppercase; letter-spacing:.06em; margin-right:2px; }
+  .chip{ border:1px solid var(--line); background:var(--bg-raised); color:var(--ink); border-radius:999px; padding:5px 12px; font-size:.78rem; cursor:pointer; font-family:inherit; display:inline-flex; align-items:center; gap:6px; }
+  .chip:hover{ border-color:var(--accent); }
+  .chip.active{ background:var(--accent); color:var(--bg); border-color:var(--accent); }
+  .chip .dot{ width:7px; height:7px; border-radius:50%; display:inline-block; }
+  .toggle{ display:inline-flex; align-items:center; gap:6px; font-size:.78rem; color:var(--ink-dim); cursor:pointer; user-select:none; }
+  .toggle input{ accent-color:var(--accent); width:14px; height:14px; }
+  .toolbar-row{ display:flex; flex-wrap:wrap; gap:8px 10px; align-items:center; width:100%; }
+  select#sortSel{ font-family:inherit; font-size:.78rem; border:1px solid var(--line); background:var(--bg-raised); color:var(--ink); border-radius:999px; padding:5px 10px; }
+
+  section.region{ margin-top:28px; }
+  .region-head{ display:flex; align-items:center; gap:10px; margin-bottom:12px; }
+  .region-head .icon{ width:26px; height:26px; border-radius:7px; display:flex; align-items:center; justify-content:center; font-size:.9rem; flex:none; }
+  .region-head h2{ font-size:1.15rem; font-weight:700; }
+  .region-head .count{ font-size:.76rem; color:var(--ink-dim); }
+
+  .grid{ display:grid; grid-template-columns:repeat(auto-fill, minmax(280px,1fr)); gap:12px; }
+  .card{ background:var(--bg-raised); border:1px solid var(--line); border-radius:12px; padding:14px 16px; box-shadow:var(--shadow); display:flex; flex-direction:column; gap:8px; }
+  .card-top{ display:flex; justify-content:space-between; gap:8px; align-items:flex-start; }
+  .card h3{ font-size:.98rem; font-weight:700; line-height:1.25; }
+  .muni{ font-size:.72rem; color:var(--ink-dim); margin-top:2px; }
+  .status-pill{ flex:none; font-size:.65rem; font-weight:700; padding:3px 8px; border-radius:999px; white-space:nowrap; text-transform:uppercase; letter-spacing:.03em; }
+  .price-row{ display:flex; align-items:baseline; gap:8px; }
+  .price-cad{ font-family:"JetBrains Mono",monospace; font-weight:700; font-size:1.2rem; }
+  .price-yen{ font-family:"JetBrains Mono",monospace; font-size:.76rem; color:var(--ink-dim); }
+  .facts{ display:flex; flex-wrap:wrap; gap:6px 14px; font-size:.76rem; color:var(--ink-dim); }
+  .facts b{ color:var(--ink); font-weight:500; }
+  .badges{ display:flex; flex-wrap:wrap; gap:6px; }
+  .badge{ font-size:.66rem; border:1px solid var(--line); border-radius:6px; padding:2px 7px; color:var(--ink-dim); }
+  .badge.on{ border-color:currentColor; }
+  .notes{ font-size:.78rem; color:var(--ink-dim); line-height:1.45; border-top:1px dashed var(--line); padding-top:8px; }
+  .card-foot{ margin-top:auto; display:flex; justify-content:space-between; align-items:center; padding-top:4px; }
+  .card-foot a{ font-size:.78rem; text-decoration:none; color:var(--accent); border-bottom:1px solid transparent; }
+  .card-foot a:hover{ border-color:var(--accent); }
+  .budget-flag{ font-size:.66rem; color:var(--status-good); font-weight:700; }
+  .over-flag{ font-size:.66rem; color:var(--status-reject); font-weight:700; }
+
+  .empty{ text-align:center; padding:48px 16px; color:var(--ink-dim); font-size:.9rem; }
+
+  footer{ margin-top:40px; padding-top:16px; border-top:1px solid var(--line); font-size:.76rem; color:var(--ink-dim); line-height:1.6; }
+  footer a{ color:var(--accent); }
+
+  @media (max-width:480px){
+    .titlebar h1{ font-size:1.25rem; }
+    .grid{ grid-template-columns:1fr; }
+  }
+</style>
+
+<div class="wrap">
+
+  <header class="top">
+    <div class="titlebar">
+      <h1>空き家 — Akiya au Japon</h1>
+      <span class="tag">Vitrine — 21 sept. 2026</span>
+    </div>
+    <div class="sub">37 propriétés retenues, à moins de ~100&nbsp;km d'une destination reconnue pour le ski/japow, le surf ou la plongée. Budget cible (achat + rénovation) : 50&nbsp;000 – 100&nbsp;000&nbsp;$&nbsp;CA.</div>
+    <div class="links">
+      <a href="https://app.notion.com/p/3dfb04df8ca84f7ebe49624aaa02e87d" target="_blank" rel="noopener">Base Notion (édition) ↗</a>
+      <a href="https://claude.ai/artifact/WUxcQbav6k14eWDkPeyRvd" target="_blank" rel="noopener">Carte géographique ↗</a>
+    </div>
+    <div class="stats" id="stats"></div>
+    <div class="toolbar">
+      <div class="toolbar-row">
+        <span class="group-label">Activité</span>
+        <button class="chip active" data-cat="all">Tout</button>
+        <button class="chip" data-cat="ski"><span class="dot" style="background:var(--ski)"></span>Ski / Japow</button>
+        <button class="chip" data-cat="surf"><span class="dot" style="background:var(--surf)"></span>Surf</button>
+        <button class="chip" data-cat="dive"><span class="dot" style="background:var(--dive)"></span>Plongée</button>
+      </div>
+      <div class="toolbar-row">
+        <span class="group-label">Statut</span>
+        <button class="chip" data-status="Nouveau">Nouveau</button>
+        <button class="chip" data-status="À revoir">À revoir</button>
+        <button class="chip" data-status="Intéressant">Intéressant</button>
+        <label class="toggle"><input type="checkbox" id="budgetOnly"> ≤ 50 000 $ CA</label>
+        <label class="toggle"><input type="checkbox" id="akiyaOnly"> Akiya officielle</label>
+        <span class="group-label" style="margin-left:auto;">Trier</span>
+        <select id="sortSel">
+          <option value="price-asc">Prix croissant</option>
+          <option value="price-desc">Prix décroissant</option>
+          <option value="size-desc">Terrain (plus grand)</option>
+        </select>
+      </div>
+    </div>
+  </header>
+
+  <main id="regions"></main>
+
+  <footer>
+    Données extraites de akiya-athome.jp (banque nationale d'akiya) et de sites d'immobilier régulier (LIFULL&nbsp;Home's) pour Okinawa, où la banque d'akiya est vide. Les prix $&nbsp;CA sont approximatifs (1&nbsp;¥&nbsp;≈&nbsp;0,0089&nbsp;$&nbsp;CA). Cette page est régénérée manuellement à partir de la <a href="https://app.notion.com/p/3dfb04df8ca84f7ebe49624aaa02e87d" target="_blank" rel="noopener">base Notion</a>, qui reste la source de vérité — c'est là qu'il faut corriger un prix ou changer un statut.
+  </footer>
+</div>
+
+<script>
+(function(){
+  var CAT = { "Ski / Japow":"ski", "Surf":"surf", "Plongée":"dive" };
+  var CAT_LABEL = { ski:"Ski / Japow", surf:"Surf", dive:"Plongée" };
+  var CAT_ICON = { ski:"⛷", surf:"🌊", dive:"🤿" };
+
+  var props = [
+    {t:"Terrain Nagara-machi — Rokujizo",pref:"Chiba",muni:"長生郡長柄町 (Nagara-machi)",cat:"surf",yen:500000,cad:4450,type:"Terrain",land:5145,akiya:false,status:"Nouveau",link:"https://nagara-t12426.akiya-athome.jp/bukken/detail/buy/48844",notes:"1556 tsubo — terrain de jeu/camping en montagne. Extrêmement abordable, laisse presque tout le budget pour la construction."},
+    {t:"Terrain Nagara-machi — Tokumasu",pref:"Chiba",muni:"長生郡長柄町 (Nagara-machi)",cat:"surf",yen:1500000,cad:13350,type:"Terrain",land:481.53,akiya:false,status:"Nouveau",link:"https://nagara-t12426.akiya-athome.jp/bukken/detail/buy/47439",notes:"Grand terrain, très abordable, secteur satellite d'Isumi/Onjuku."},
+    {t:"Maison Sakae-machi — Sakanai-dai",pref:"Chiba",muni:"印旛郡栄町 (Sakae-machi)",cat:"surf",yen:6980000,cad:62122,type:"Maison + terrain",land:179.81,build:102.46,year:"1984",akiya:false,status:"Nouveau",link:"https://sakae-t12329.akiya-athome.jp/bukken/detail/buy/47454",notes:"4LDK, à 23 min à pied de la gare Ajiki (ligne JR Narita)."},
+    {t:"Maison Otaki-machi — Tosomoto",pref:"Chiba",muni:"夷隅郡大多喜町 (Otaki-machi)",cat:"surf",yen:7800000,cad:69420,type:"Maison + terrain",land:1557.49,build:126.53,akiya:true,status:"Nouveau",link:"https://otaki-t12441.akiya-athome.jp/bukken/detail/buy/49327",notes:"5K, à 9 min à pied de la gare. Meilleur secteur trouvé près d'Isumi."},
+    {t:"Maison Susaki-shi — Oma-nishimachi",pref:"Kochi",muni:"須崎市",cat:"surf",yen:1500000,cad:13350,type:"Maison",land:80.62,build:40.4,akiya:true,status:"Nouveau",link:"https://susaki-c39206.akiya-athome.jp/bukken/detail/buy/44025",notes:"Excellente affaire — laisse une large marge pour la rénovation."},
+    {t:"Maison Susaki-shi — Saiwaicho",pref:"Kochi",muni:"須崎市",cat:"surf",yen:2800000,cad:24920,type:"Maison",land:99.2,year:"1988",akiya:true,status:"Nouveau",link:"https://susaki-c39206.akiya-athome.jp/bukken/detail/buy/43167",notes:"4DK, à 5 min à pied de la gare de Susaki."},
+    {t:"Maison Aki-shi — Kurotori (hors tsunami)",pref:"Kochi",muni:"安芸市",cat:"surf",yen:10000000,cad:89000,type:"Maison",land:332,build:118.23,akiya:true,status:"À revoir",link:"https://aki-c39203.akiya-athome.jp/bukken/detail/buy/36711",notes:"5DK, jardin spacieux, sur les hauteurs (zone sans risque de tsunami)."},
+    {t:"Maison Aki-shi — Akano (hors tsunami)",pref:"Kochi",muni:"安芸市赤野乙",cat:"surf",yen:12000000,cad:106800,type:"Maison + terrain",land:300.82,build:175.88,akiya:true,status:"À revoir",link:"https://aki-c39203.akiya-athome.jp/bukken/detail/buy/36734",notes:"6LDK, verger et potager. Dépasse le budget total à elle seule."},
+    {t:"Hyuga-shi — Mimitsu",pref:"Miyazaki",muni:"Hyuga-shi",cat:"surf",yen:1620000,cad:14418,type:"Maison + terrain",land:3132.55,build:94,year:"1944",akiya:true,status:"Nouveau",link:"https://hyuga-c45206.akiya-athome.jp/bukken/detail/buy/49299",notes:"Kominka en bord de mer, terrain immense (~947 tsubo), proche des spots de surf de Kanegahama. Rénovation nécessaire."},
+    {t:"Hyuga-shi — Hyugadai",pref:"Miyazaki",muni:"Hyuga-shi",cat:"surf",yen:10000000,cad:89000,type:"Maison + terrain",land:258.43,build:103.35,year:"1979",akiya:true,status:"Nouveau",link:"https://hyuga-c45206.akiya-athome.jp/bukken/detail/buy/43512",notes:"5LDK, quartier en hauteur (39 m). Prix proche du budget total — à considérer avec précaution."},
+
+    {t:"Iwanai-cho — Nozuka (ski/onsen à prox.)",pref:"Hokkaido",muni:"Iwanai-cho",cat:"ski",yen:2400000,cad:21360,type:"Terrain",land:264.78,akiya:true,reconstr:true,status:"Nouveau",link:"https://iwanai-t01402.akiya-athome.jp/bukken/detail/buy/2676",notes:"L'annonce mentionne explicitement une station de ski, un camping et un onsen à proximité."},
+    {t:"Iwanai-cho — Takadai",pref:"Hokkaido",muni:"Iwanai-cho",cat:"ski",yen:3300000,cad:29370,type:"Terrain",land:206.61,akiya:true,reconstr:true,status:"Nouveau",link:"https://iwanai-t01402.akiya-athome.jp/bukken/detail/buy/10260",notes:"Pharmacie/dépanneur à moins de 5 min à pied."},
+    {t:"Iwanai-cho — Ohama",pref:"Hokkaido",muni:"Iwanai-cho",cat:"ski",yen:5000000,cad:44500,type:"Maison + terrain",land:247.92,build:154.54,year:"1963",akiya:true,status:"Nouveau",link:"https://iwanai-t01402.akiya-athome.jp/bukken/detail/buy/597",notes:"Seule vraie maison (7LDK) du lot Iwanai-cho, près de la mer. Rénovations importantes nécessaires."},
+    {t:"Iwanai-cho — Nozuka (6953 m²)",pref:"Hokkaido",muni:"Iwanai-cho",cat:"ski",yen:21400000,cad:190460,type:"Terrain",land:6953,akiya:true,reconstr:true,status:"Nouveau",link:"https://iwanai-t01402.akiya-athome.jp/bukken/detail/buy/22412",notes:"Très grand terrain (~2100 tsubo). Dépasse largement le budget total — référence de marché."},
+    {t:"Rankoshi-cho — Tomioka",pref:"Hokkaido",muni:"Rankoshi-cho",cat:"ski",yen:38000000,cad:338200,type:"Maison + terrain",land:695.48,build:162.61,year:"1984",akiya:true,status:"Nouveau",link:"https://rankoshi-t01394.akiya-athome.jp/bukken/detail/buy/40525",notes:"Ferme bi-génération + terrain agricole, zone Niseko. Très au-dessus du budget total — référence."},
+    {t:"Rankoshi-cho — Yoshikuni",pref:"Hokkaido",muni:"Rankoshi-cho",cat:"ski",yen:42000000,cad:373800,type:"Maison + terrain",land:1044.1,build:132.48,year:"1978",akiya:true,status:"Nouveau",link:"https://rankoshi-t01394.akiya-athome.jp/bukken/detail/buy/47336",notes:"Décrite comme « zone Niseko », vue sur les monts Niseko. Très au-dessus du budget total — référence."},
+    {t:"Hachimantai — Matsuo-Yorigi (terrain)",pref:"Iwate",muni:"Hachimantai-shi",cat:"ski",yen:500000,cad:4450,type:"Terrain",land:396,akiya:true,status:"Nouveau",link:"https://hachimantai-c03214.akiya-athome.jp/bukken/detail/buy/44115",notes:"Terrain à bâtir, secteur Matsuo-Yorigi, proche Appi Kogen."},
+    {t:"Hachimantai — Ubakoishi",pref:"Iwate",muni:"Hachimantai-shi",cat:"ski",yen:600000,cad:5340,type:"Maison + terrain",land:587.89,build:105.98,year:"1977",akiya:true,status:"Nouveau",link:"https://hachimantai-c03214.akiya-athome.jp/bukken/detail/buy/47360",notes:"5LDK pour 60万円 — un des meilleurs rapports superficie/prix du secteur."},
+    {t:"Hachimantai — Matsuo-Yorigi (près onsen)",pref:"Iwate",muni:"Hachimantai-shi",cat:"ski",yen:1500000,cad:13350,type:"Maison + terrain",land:660,build:85.95,year:"1974",akiya:true,status:"Nouveau",link:"https://hachimantai-c03214.akiya-athome.jp/bukken/detail/buy/44113",notes:"4DK, à 2 min à pied de la zone thermale Onsenkyo Nishiguchi."},
+    {t:"Hachimantai — Matsuo-Yorigi (près Appi)",pref:"Iwate",muni:"Hachimantai-shi",cat:"ski",yen:4400000,cad:39160,type:"Maison + terrain",land:713,build:177.2,year:"1975",akiya:true,status:"Nouveau",link:"https://hachimantai-c03214.akiya-athome.jp/bukken/detail/buy/49377",notes:"4LDK, à proximité immédiate de Matsukawa Onsen et de la station de ski Appi Kogen."},
+    {t:"Sakae-mura — Minosaku",pref:"Nagano",muni:"Sakae-mura",cat:"ski",yen:500000,cad:4450,type:"Maison + terrain",land:276.54,build:121.64,year:"1942",akiya:true,status:"Nouveau",link:"https://sakae-v20602.akiya-athome.jp/bukken/detail/buy/40317",notes:"7DK, salle de bain déjà rénovée. Un des prix les plus bas relevés dans tout le projet."},
+    {t:"Sakae-mura — Koakazawa (Akiyamago)",pref:"Nagano",muni:"Sakae-mura",cat:"ski",yen:1000000,cad:8900,type:"Maison + terrain",land:496.68,build:175.47,year:"1957",akiya:true,status:"Nouveau",link:"https://sakae-v20602.akiya-athome.jp/bukken/detail/buy/10321",notes:"6LDK, terrain agricole inclus, secteur reculé d'Akiyamago (neige abondante)."},
+    {t:"Sakae-mura — Shiratori",pref:"Nagano",muni:"Sakae-mura",cat:"ski",yen:3000000,cad:26700,type:"Maison + terrain",land:275.02,build:98.53,akiya:true,status:"Nouveau",link:"https://sakae-v20602.akiya-athome.jp/bukken/detail/buy/44144",notes:"5LDK, ancienne maison de campagne avec potager. Village limitrophe de Nozawa Onsen, gare à 3 min à pied."},
+    {t:"Iizuna-machi — Higashi-Takahara",pref:"Nagano",muni:"Iizuna-machi",cat:"ski",yen:6000000,cad:53400,type:"Maison + terrain",land:801,build:115.92,akiya:true,status:"Nouveau",link:"https://iizuna-t20590.akiya-athome.jp/bukken/detail/buy/49241",notes:"1LDK. Iizuna-machi a sa propre station de ski, ~20 km de Nagano-shi."},
+    {t:"Minami-Uonuma-shi — Hiruguro",pref:"Niigata",muni:"Minami-Uonuma-shi",cat:"ski",yen:7500000,cad:66750,type:"Maison + terrain",land:1941.73,build:271.31,year:"1978",akiya:true,status:"Nouveau",link:"https://minamiuonuma-c15226.akiya-athome.jp/bukken/detail/buy/34213",notes:"11LDK, grande ferme. Contient la station Muikamachi Yaneyama, proche Yuzawa/Naeba."},
+    {t:"Yamagata-shi — Narisawa-nishi",pref:"Yamagata",muni:"Yamagata-shi",cat:"ski",yen:1500000,cad:13350,type:"Maison + terrain",land:65.83,build:48.4,year:"1970",akiya:true,status:"Nouveau",link:"https://yamagata-c06201.akiya-athome.jp/bukken/detail/buy/49106",notes:"3K, gare JR Zao à 5 min en voiture."},
+    {t:"Yamagata-shi — Zao-Hango",pref:"Yamagata",muni:"Yamagata-shi",cat:"ski",yen:4800000,cad:42720,type:"Maison + terrain",land:241.31,build:76.33,year:"1967",akiya:true,status:"Nouveau",link:"https://yamagata-c06201.akiya-athome.jp/bukken/detail/buy/44899",notes:"4K, directement dans le secteur nommé Zao (蔵王半郷)."},
+
+    {t:"Onna-son — fourchette médiane",pref:"Okinawa",muni:"国頭郡恩納村",cat:"dive",cad:null,type:"Maison",akiya:false,status:"À revoir",link:"https://www.homes.co.jp/kodate/chuko/okinawa/kunigami_onna-city/list/",notes:"19 annonces, la plupart entre 3,4M et 9,6M¥ (30 000$–85 000$ CA) — à trier par prix sur le site."},
+    {t:"Onna-son — entrée de gamme",pref:"Okinawa",muni:"国頭郡恩納村",cat:"dive",yen:1980000,cad:17622,type:"Maison",akiya:false,status:"Intéressant",link:"https://www.homes.co.jp/kodate/chuko/okinawa/kunigami_onna-city/list/",notes:"Meilleure trouvaille Okinawa — récifs coralliens sur place, ~1h de Naha. Plusieurs annonces déjà en minpaku."},
+    {t:"Miyako-jima — entrée de gamme",pref:"Okinawa",muni:"宮古島市",cat:"dive",yen:2100000,cad:18690,type:"Maison",akiya:false,status:"Intéressant",link:"https://www.homes.co.jp/kodate/chuko/okinawa/miyakojima-city/list/",notes:"Très abordable — 11 annonces, 2,1M–12,5M¥. Grottes sous-marines réputées sur place."},
+    {t:"Miyako-jima — 3LDK neuve (2025)",pref:"Okinawa",muni:"宮古島市",cat:"dive",yen:3750000,cad:33375,type:"Maison + terrain",land:280,year:"2025",akiya:false,reconstr:true,status:"Nouveau",link:"https://www.homes.co.jp/kodate/chuko/okinawa/miyakojima-city/list/",notes:"Construction récente — laisse tout le budget rénovation en réserve."},
+    {t:"Terrain Makinohara — Sagara",pref:"Shizuoka",muni:"牧之原市",cat:"dive",yen:950000,cad:8455,type:"Terrain",land:157.04,akiya:false,status:"À revoir",link:"https://makinohara-c22226.akiya-athome.jp/bukken/detail/buy/49206",notes:"31 annonces au total (plus grande offre de la préfecture) mais plus au nord, hors de la zone plongée d'Izu proprement dite."},
+    {t:"Maison Shimoda — Naka",pref:"Shizuoka",muni:"下田市中",cat:"dive",yen:5000000,cad:44500,type:"Maison + terrain",land:712,build:135.82,year:"1973",akiya:false,reconstr:false,status:"Nouveau",link:"https://shimoda-c22219.akiya-athome.jp/bukken/detail/buy/48876",notes:"4SLDK. Accès routier non conforme — reconstruction interdite. Bâtiment secondaire déjà loué."},
+    {t:"Maison Shimoda — Shirahama (vue mer)",pref:"Shizuoka",muni:"下田市白浜",cat:"dive",yen:5000000,cad:44500,type:"Maison + terrain",land:67.76,build:129.68,year:"1958",akiya:false,reconstr:false,status:"Intéressant",link:"https://shimoda-c22219.akiya-athome.jp/bukken/detail/buy/48060",notes:"5LDK rénovée, à 4 min à pied de la plage. Reconstruction interdite mais rénovation possible."},
+    {t:"Maison Higashiizu-cho — Okawa",pref:"Shizuoka",muni:"賀茂郡東伊豆町大川",cat:"dive",yen:6900000,cad:61410,type:"Maison + terrain",land:199.9,build:88.6,year:"1991",akiya:false,status:"Nouveau",link:"https://higashiizu-t22301.akiya-athome.jp/bukken/detail/buy/47786",notes:"3LDK. Municipalité avec le plus d'annonces de toute la région Izu (14)."},
+    {t:"Maison Shimoda — Kisami",pref:"Shizuoka",muni:"下田市吉佐美",cat:"dive",yen:7500000,cad:66750,type:"Maison + terrain",land:108.15,build:63.56,year:"1982",akiya:false,status:"Nouveau",link:"https://www.akiya-athome.jp/buy/22/",notes:"3K, rénovation partielle déjà faite. Lien vers la liste municipale — annonce individuelle à repérer sur place."},
+    {t:"Maison Shimoda — Shirahama (vue plage)",pref:"Shizuoka",muni:"下田市白浜",cat:"dive",yen:15000000,cad:133500,type:"Maison + terrain",land:245,build:104.34,year:"1997",akiya:false,status:"À revoir",link:"https://shimoda-c22219.akiya-athome.jp/bukken/detail/buy/48589",notes:"3SLDK, terrasse en bois, vue dégagée sur l'océan. Dépasse le budget total à elle seule."}
+  ];
+
+  var STATUS_COLOR = { "Nouveau":"var(--status-new)", "À revoir":"var(--status-review)", "Intéressant":"var(--status-good)", "Rejeté":"var(--status-reject)" };
+
+  var activeCat = "all";
+  var activeStatuses = [];
+  var budgetOnly = false;
+  var akiyaOnly = false;
+  var sortMode = "price-asc";
+
+  function fmtYen(y){ return (y || y===0) ? "¥" + y.toLocaleString("fr-CA") : "prix sur demande"; }
+  function fmtCad(c){ return (c || c===0) ? c.toLocaleString("fr-CA",{style:"currency",currency:"CAD",maximumFractionDigits:0}) : ""; }
+
+  function matches(p){
+    if(activeCat!=="all" && p.cat!==activeCat) return false;
+    if(activeStatuses.length && activeStatuses.indexOf(p.status)===-1) return false;
+    if(budgetOnly && !(p.cad!=null && p.cad<=50000)) return false;
+    if(akiyaOnly && !p.akiya) return false;
+    return true;
+  }
+
+  function sortFn(a,b){
+    if(sortMode==="size-desc"){ return (b.land||0)-(a.land||0); }
+    var av = a.cad==null ? Infinity : a.cad, bv = b.cad==null ? Infinity : b.cad;
+    return sortMode==="price-desc" ? bv-av : av-bv;
+  }
+
+  function cardHtml(p){
+    var badges = "";
+    if(p.akiya) badges += '<span class="badge on" style="color:var(--status-good)">Akiya officielle</span>';
+    if(p.reconstr===true) badges += '<span class="badge on" style="color:var(--status-good)">Reconstructible</span>';
+    if(p.reconstr===false) badges += '<span class="badge on" style="color:var(--status-reject)">Reconstruction limitée</span>';
+    var facts = '<span><b>' + p.type + '</b></span>';
+    if(p.land) facts += '<span>Terrain <b>' + p.land.toLocaleString("fr-CA") + ' m²</b></span>';
+    if(p.build) facts += '<span>Bâti <b>' + p.build.toLocaleString("fr-CA") + ' m²</b></span>';
+    if(p.year) facts += '<span>Construit <b>' + p.year + '</b></span>';
+    var budgetFlag = "";
+    if(p.cad!=null){
+      if(p.cad<=50000) budgetFlag = '<span class="budget-flag">Dans le budget ✓</span>';
+      else if(p.cad>100000) budgetFlag = '<span class="over-flag">Hors budget total</span>';
+    }
+    return '<article class="card">' +
+      '<div class="card-top"><div><h3>'+p.t+'</h3><div class="muni">'+p.muni+' · '+p.pref+'</div></div>' +
+      '<span class="status-pill" style="background:'+STATUS_COLOR[p.status]+'22; color:'+STATUS_COLOR[p.status]+'">'+p.status+'</span></div>' +
+      '<div class="price-row"><span class="price-cad mono">'+(p.cad!=null?fmtCad(p.cad):"Prix sur demande")+'</span><span class="price-yen mono">'+(p.yen?fmtYen(p.yen):"")+'</span></div>' +
+      '<div class="facts">'+facts+'</div>' +
+      (badges ? '<div class="badges">'+badges+'</div>' : '') +
+      '<div class="notes">'+p.notes+'</div>' +
+      '<div class="card-foot">'+budgetFlag+'<a href="'+p.link+'" target="_blank" rel="noopener">Voir l\'annonce ↗</a></div>' +
+      '</article>';
+  }
+
+  function render(){
+    var visible = props.filter(matches);
+    var byCat = { ski:[], surf:[], dive:[] };
+    visible.forEach(function(p){ byCat[p.cat].push(p); });
+
+    var totalCad=0, totalCount=0;
+    visible.forEach(function(p){ if(p.cad!=null){ totalCad+=p.cad; totalCount++; } });
+    var avg = totalCount ? Math.round(totalCad/totalCount) : 0;
+    document.getElementById("stats").innerHTML =
+      '<div class="stat"><b>'+visible.length+'</b><span>Propriétés affichées</span></div>' +
+      '<div class="stat"><b>'+fmtCad(avg)+'</b><span>Prix moyen</span></div>' +
+      '<div class="stat"><b>'+visible.filter(function(p){return p.cad!=null && p.cad<=50000;}).length+'</b><span>Dans le budget (≤50k)</span></div>';
+
+    var order = [["ski","Ski / Japow"],["surf","Surf"],["dive","Plongée"]];
+    var html = "";
+    order.forEach(function(pair){
+      var cat=pair[0], label=pair[1];
+      if(activeCat!=="all" && activeCat!==cat) return;
+      var list = byCat[cat].slice().sort(sortFn);
+      if(!list.length) return;
+      html += '<section class="region">' +
+        '<div class="region-head"><span class="icon" style="background:var(--'+cat+'-soft); color:var(--'+cat+')">'+CAT_ICON[cat]+'</span>' +
+        '<h2>'+label+'</h2><span class="count">'+list.length+' propriété'+(list.length>1?'s':'')+'</span></div>' +
+        '<div class="grid">' + list.map(cardHtml).join("") + '</div>' +
+        '</section>';
+    });
+    if(!html) html = '<div class="empty">Aucune propriété ne correspond à ces filtres. Essaie d\'en retirer un.</div>';
+    document.getElementById("regions").innerHTML = html;
+  }
+
+  document.querySelectorAll(".chip[data-cat]").forEach(function(btn){
+    btn.addEventListener("click", function(){
+      document.querySelectorAll(".chip[data-cat]").forEach(function(b){ b.classList.remove("active"); });
+      btn.classList.add("active");
+      activeCat = btn.dataset.cat;
+      render();
+    });
+  });
+  document.querySelectorAll(".chip[data-status]").forEach(function(btn){
+    btn.addEventListener("click", function(){
+      var s = btn.dataset.status;
+      var i = activeStatuses.indexOf(s);
+      if(i===-1){ activeStatuses.push(s); btn.classList.add("active"); btn.style.background="var(--accent)"; btn.style.color="var(--bg)"; btn.style.borderColor="var(--accent)"; }
+      else { activeStatuses.splice(i,1); btn.classList.remove("active"); btn.style.background=""; btn.style.color=""; btn.style.borderColor=""; }
+      render();
+    });
+  });
+  document.getElementById("budgetOnly").addEventListener("change", function(e){ budgetOnly = e.target.checked; render(); });
+  document.getElementById("akiyaOnly").addEventListener("change", function(e){ akiyaOnly = e.target.checked; render(); });
+  document.getElementById("sortSel").addEventListener("change", function(e){ sortMode = e.target.value; render(); });
+
+  render();
+})();
+</script>
