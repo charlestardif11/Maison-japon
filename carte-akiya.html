@@ -151,7 +151,7 @@
   <header>
     <span class="eyebrow">Maison au Japon — recherche de Charles</span>
     <h1>Où chercher : ski, surf, plongée</h1>
-    <p>Toutes les propriétés et secteurs repérés jusqu'ici, à moins de ~100&nbsp;km d'une destination réputée. Budget cible : 50 000 – 100 000&nbsp;$&nbsp;CA (achat + rénovation).</p>
+    <p>Toutes les propriétés et secteurs repérés jusqu'ici, à moins de ~100&nbsp;km d'une destination réputée. Budget cible : 50 000 – 100 000&nbsp;$&nbsp;CA (achat + rénovation). Dernière mise à jour : 12 octobre 2026.</p>
   </header>
 
   <div class="toolbar">
@@ -323,6 +323,9 @@ La carte ci-dessus trace le vrai contour des côtes du Japon (données géograph
     kushimoto_3:[33.4858005,135.786985],
     kotoura_1:[35.4953101,133.6932321],
     kotoura_2:[35.4953101,133.6932321],
+    nozawa_nanakamaki:[36.934,138.435],
+    isumi_ohara:[35.26,140.39],
+    isumi_oharadai:[35.268,140.383],
     onna:[26.4975957,127.8529654], miyako:[24.7934182,125.2889743], zamami:[26.2286,127.3033]
   };
   // Projection affine calibrée sur la mise en page stylisée d'origine (2 points de repère :
@@ -416,7 +419,13 @@ La carte ci-dessus trace le vrai contour des côtes du Japon (données géograph
     { key:"kotoura_1", cat:"ski", pref:"Tottori", name:"Kotoura-cho — 123m² (琴浦町)",
       props:[{title:"Maison traditionnelle — 123m²", yen:1000000, cad:8900, type:"Maison", build:123, land:168, year:"1959", akiya:false, status:"Nouveau", link:"https://www.allakiyas.com/properties.php?id=d3d3LnRvd24ua290b3VyYS50b3R0b3JpLmpwfDIzMA%3D%3D", notes:"~20km du mont Daisen (ski) et sur la côte (plage de Hawai/Higashihama, surf). Excellent rapport superficie/prix."}]},
     { key:"kotoura_2", cat:"ski", pref:"Tottori", name:"Kotoura-cho — 1981 (琴浦町)",
-      props:[{title:"Maison — 1981", yen:3900000, cad:34710, type:"Maison", build:172, land:327, year:"1981", akiya:false, status:"Nouveau", link:"https://www.allakiyas.com/properties.php?id=d3d3LnRvd24ua290b3VyYS50b3R0b3JpLmpwfDIzMw%3D%3D", notes:"Construction plus récente, double activité ski (Daisen) et surf/plage côtière."}]}
+      props:[{title:"Maison — 1981", yen:3900000, cad:34710, type:"Maison", build:172, land:327, year:"1981", akiya:false, status:"Nouveau", link:"https://www.allakiyas.com/properties.php?id=d3d3LnRvd24ua290b3VyYS50b3R0b3JpLmpwfDIzMw%3D%3D", notes:"Construction plus récente, double activité ski (Daisen) et surf/plage côtière."}]},
+    { key:"nozawa_nanakamaki", cat:"ski", pref:"Nagano", name:"Nozawa Onsen-mura — Nanakamaki (野沢温泉村)",
+      props:[{title:"Nanakamaki — terrain 6 222m²", yen:4500000, cad:40050, type:"Maison + terrain", build:129, land:6222, year:"1977", akiya:false, status:"Nouveau", link:"https://www.allakiyas.com/en/nozawaonsen-mura-nagano-ken/house/for-sale/", notes:"12DK, dans le village de Nozawa Onsen (station de ski réputée, japow). Gare Kuwanagawa à 32 min à pied, ou bus 21 min. Très grand terrain. Position approximative du secteur (adresse exacte non publiée); lien = liste Nozawa Onsen sur allakiyas.com."}]},
+    { key:"isumi_ohara", cat:"surf", pref:"Chiba", name:"Isumi-shi — Ohara (いすみ市大原)",
+      props:[{title:"Ohara — 113m², terrain 1 259m²", yen:7800000, cad:69420, type:"Maison + terrain", build:113, land:1259, year:"1969", akiya:false, status:"Nouveau", link:"https://www.allakiyas.com/properties.php?id=d3d3LmluYWthbmV0LmpwfDI3ODY5", notes:"Secteur surf d'Ohara/Isumi, environ 1h30 de Tokyo. Grand terrain. Position approximative du quartier; rénovation à prévoir (construction de 1969)."}]},
+    { key:"isumi_oharadai", cat:"surf", pref:"Chiba", name:"Isumi-shi — Oharadai (いすみ市大原台)",
+      props:[{title:"Oharadai — 4LDK de 2008", yen:6000000, cad:53400, type:"Maison + terrain", build:106, land:350, year:"2008", akiya:false, status:"Nouveau", link:"https://www.allakiyas.com/properties.php?id=bmFuc291dG90aS5jb218MmRiOTI4MTc2YmEyYjQ5ZjFjMDY%3D", notes:"Maison récente (2008), peu de rénovation structurelle probable. Lotissement Oharadai à Isumi, secteur surf. Position approximative du quartier."}]}
   ];
   groups.forEach(function(g){ var xy = project(LATLNG[g.key]); g.x = xy.x; g.y = xy.y; });
 
