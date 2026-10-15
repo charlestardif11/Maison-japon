@@ -51,6 +51,7 @@ Avec un budget total de 50 000 à 100 000 $ CA pour l'achat et la rénovation co
 4. Accès aux matériaux : les zones rurales ou montagneuses allongent les délais et augmentent les frais de livraison ; certains matériaux modernes (isolation, fenêtres à double vitrage) peuvent être moins disponibles localement.
 5. Âge et structure : une maison en bois traditionnel (poteaux-poutres, sans fondation en béton) demande des travaux de mise aux normes sismiques et de fondation plus coûteux qu'une maison plus récente en ossature bois de type occidental.
 6. Climat et humidité : le sud du Japon, plus humide, présente un risque plus élevé de dommages liés aux termites et à la pourriture — une source fréquente de coûts imprévus.
+7. Réforme du 1er avril 2025 (fin de la « 4号特例 ») : pour une maison en bois à deux étages, ou de plain-pied de plus de 200 m², des travaux qui touchent plus de la moitié d'un élément structurel (murs, poteaux, planchers, poutres, toit, escaliers) exigent une demande de confirmation de construction avant le début des travaux. Prévoir des frais de dossier et d'architecte, et jusqu'à 35 jours de délai. Un plain-pied de 200 m² ou moins y échappe, tout comme les travaux d'intérieur (cuisine, salle de bain, revêtements, isolation par l'intérieur) et le remplacement du seul revêtement de toit. Aucun chiffre de coût n'a été trouvé dans les sources : à demander dans les soumissions. Voir le dossier légal, section 4, point 11.
 
 ## Sources et points à confirmer
 
@@ -63,13 +64,16 @@ Avec un budget total de 50 000 à 100 000 $ CA pour l'achat et la rénovation co
 - 古民家リノベーション費用の相場 (Toppan Refotoru) : https://forest.toppan.com/refotoru/column/purpose/renovation/article_2025_03_31_230/
 - 古民家リノベーション費用の相場を5社に聞いてみた (Kuronika) : https://kuronika.com/knowledge/cost/
 - JPY to CAD Exchange Rate (Pluang) : https://pluang.com/en/tools/currency-converter/jpy-cad
+- Does a Kominka Renovation Need a Building Confirmation Application? (Kominka Hokuriku) : https://kominka-hokuriku.jp/en/kominka-kakunin-shinsei
+- Planning a Renovation in Japan? What to Know About the 2025 Building Code Update (Heritage Homes Japan) : https://heritagehomesjapan.com/how-the-2025-building-code-changes-will-affect-renovations-in-japan/
 
 ### À confirmer
 
 - Le taux de change utilisé (1 CAD ≈ 112 ¥) fluctue — à reconfirmer avant de fixer un budget final.
 - Ces chiffres sont des fourchettes générales tirées d'articles spécialisés, pas des soumissions réelles — obtenir 2 à 3 devis d'entrepreneurs locaux une fois une propriété ciblée, avant l'achat.
 - Des subventions municipales pour la rénovation d'akiya existent (500 000 – 5 000 000 ¥ mentionnés) mais semblent souvent réservées aux résidents qui occupent la maison à l'année — à vérifier si elles s'appliquent à un usage en location courte durée.
+- Coût réel des demandes de confirmation de construction (frais de dossier, architecte) depuis la réforme d'avril 2025 : aucun chiffre trouvé, à obtenir dans les devis locaux.
 - La taille de maison type utilisée dans les scénarios (100 m² / ~1 076 pi²) est une hypothèse à ajuster une fois une propriété précise identifiée.
 
 ---
-*Fichier de contexte généré et mis à jour automatiquement par Claude à partir du dossier vivant du projet « Maison au japon ». Dernière mise à jour : 21 septembre 2026.*
+*Fichier de contexte généré et mis à jour automatiquement par Claude à partir du dossier vivant du projet « Maison au japon ». Dernière mise à jour : 14 octobre 2026.*

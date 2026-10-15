@@ -71,6 +71,7 @@ Le prix affiché (parfois 0 à 5 M¥) cache l'essentiel du risque. Les vérifica
 8. **État réel du bâtiment** : termites, pourriture, toit. Les bâtiments en bois se déprécient à ~zéro dans les registres fiscaux vers 22 ans, mais la rénovation ne se reflète presque pas au prix de revente : acheter pour l'usage, pas comme un pur placement.
 9. **Règle des « maisons vacantes ».** Un bien négligé peut être désigné comme vacant à risque ; la réduction de taxe foncière sur le terrain peut alors disparaître (jusqu'à environ 6 fois plus élevée) et l'administration peut ordonner ou faire exécuter une démolition aux frais du propriétaire. Point tiré d'une source secondaire, à faire préciser par la municipalité.
 10. **Subventions municipales** (banques d'akiya, aides à la rénovation ou à l'achat) : souvent assorties de conditions de résidence qui sont incompatibles avec un propriétaire absent. À lire attentivement avant de s'y fier.
+11. **Réforme du 1er avril 2025 : fin de la « 4号特例 » (examen de la structure des petites maisons en bois).** La loi sur les normes de construction (建築基準法) distingue maintenant deux catégories : la **nouvelle catégorie 2 (新2号)**, soit une maison en bois à **deux étages** ou de **plain-pied de plus de 200 m²**, et la **nouvelle catégorie 3 (新3号)**, soit un **plain-pied de 200 m² ou moins**. Pour la catégorie 2, de gros travaux (réparer ou refaire **plus de la moitié** d'un des éléments principaux : murs, poteaux, planchers, poutres, toit, escaliers) exigent une **demande de confirmation de construction (建築確認申請)** *avant* le début des travaux. La catégorie 3 reste exemptée pour ces travaux. Restent libres : cuisine, salle de bain, toilettes, revêtements de sol, isolation par l'intérieur, peinture, et le remplacement du seul revêtement de toit (par exemple tuiles pour tôle). Le délai d'examen d'une demande de catégorie 2 est de 35 jours (7 auparavant), et travailler sans le certificat expose le propriétaire et l'entrepreneur à une amende pouvant aller jusqu'à 1 M¥ ou un an de prison. La norme d'efficacité énergétique ne s'applique pas à une rénovation, seulement aux parties neuves ou ajoutées. **Conséquence pour le tri des propriétés :** noter le nombre d'étages et la surface totale de chaque maison. Le changement d'usage pour la location courte durée relève d'autres règles (section 6).
 
 ## 5. Obligations fiscales et administratives du propriétaire non résident
 
@@ -127,6 +128,8 @@ Autres points communs :
 - [ ] Limites confirmées (ou budget d'arpentage)
 - [ ] Ordonnance locale sur le minpaku et zonage d'hébergement vérifiés (si courte durée)
 - [ ] Inspection du bâtiment et soumission de rénovation avant de finaliser
+- [ ] Nombre d'étages et surface totale notés : catégorie 2 (étages ou plus de 200 m²) ou catégorie 3 (plain-pied, 200 m² ou moins) ?
+- [ ] Travaux prévus : touchent-ils plus de la moitié d'un élément structurel ? Si oui (catégorie 2), prévoir la demande de confirmation et 35 jours de délai
 - [ ] Conditions des subventions locales lues (obligation de résidence ?)
 - [ ] Représentant fiscal et gestionnaire identifiés
 - [ ] Solution de transfert de fonds, compte bancaire
@@ -141,6 +144,9 @@ Autres points communs :
 - Règles locales de la municipalité ciblée : minpaku, hébergement, subventions, maisons vacantes.
 - Traitement fiscal canadien/québécois du revenu locatif japonais (T1135, crédit pour impôt étranger).
 - Détails de la retenue à la source selon la structure de location (courte durée via gestionnaire, plateforme ou société).
+- Réforme d'avril 2025 : règles exactes pour les extensions et ajouts d'étage (seuil de surface, obligation de demande). Les sources consultées les traitent à part sans confirmer de seuil ; à faire préciser par un 建築士 local.
+- Réforme d'avril 2025 : une source mentionne des exceptions pour les zones hors planification urbaine, sans les détailler ; à confirmer pour la municipalité ciblée.
+- Divergence entre sources : un texte reçu en consultation (origine non précisée) disait que remplacer la toiture (tuiles lourdes) déclenche l'obligation de demande ; les sources vérifiées indiquent que remplacer seulement le revêtement du toit ne compte pas, mais que tout refaire jusqu'aux chevrons sur plus de la moitié du toit compte.
 
 ## 10. Sources consultées
 
@@ -151,6 +157,12 @@ Autres points communs :
 **Cabinets et guides spécialisés (à lire avec prudence)**
 
 - PwC Tax Summaries, Japan: Individual — Income determination : https://taxsummaries.pwc.com/japan/individual/income-determination
+
+**Réforme de la loi sur les normes de construction (avril 2025)**
+
+- Does a Kominka Renovation Need a Building Confirmation Application? (Kominka Hokuriku) : https://kominka-hokuriku.jp/en/kominka-kakunin-shinsei
+- Planning a Renovation in Japan? What to Know About the 2025 Building Code Update (Heritage Homes Japan) : https://heritagehomesjapan.com/how-the-2025-building-code-changes-will-affect-renovations-in-japan/
+- ４号特例縮小でリフォームも建築確認申請が一部必要に (SUUMO) : https://suumo.jp/remodel/blog/entry/20241126/001
 
 **Plateformes et courtiers**
 
@@ -164,4 +176,4 @@ Autres points communs :
 - Japan Real Estate Analytics (FEFTA ; plafond de 180 jours) : https://www.japan-realestate-analytics.com/blog/japan-2026-foreign-investor-reporting-law ; https://www.japan-realestate-analytics.com/blog/minpaku-180-day-cap-legal-workarounds-365-days-2026
 
 ---
-*Fichier de contexte généré et mis à jour automatiquement par Claude à partir du dossier vivant du projet « Maison au japon ». Dernière mise à jour : 21 septembre 2026.*
+*Fichier de contexte généré et mis à jour automatiquement par Claude à partir du dossier vivant du projet « Maison au japon ». Dernière mise à jour : 14 octobre 2026.*
